@@ -8,3 +8,9 @@ order: 0
 
 ##  加载模型
 <code src="./LoadModel.jsx"></code>
+
+##  模型描边
+<code src="./ModelColor.jsx"></code>
+
+##  加载BIM模型
+<code src="./Load3dTiles.jsx"></code>
