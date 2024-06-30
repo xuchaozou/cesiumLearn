@@ -30,7 +30,6 @@ export default (props) => {
   const load3dTiles = async (viewer) => {
     const tileset = await Cesium3DTileset.fromIonAssetId(2464651)
     viewerRef.current.scene.primitives.add(tileset)
-    window.tileset = tileset
 
     tileset.tileLoad.addEventListener(function (tile) {
       // console.log(tile , 'load')
