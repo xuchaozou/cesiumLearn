@@ -70,6 +70,7 @@
     "stylelint": "^14.9.1"
   },
   "dependencies": {
+    "ahooks": "^3.8.0",
     "antd": "^5.17.4",
     "babel-plugin-import": "^1.13.8",
     "cesium": "^1.117.0"

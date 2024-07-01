@@ -10,7 +10,7 @@ export default (props) => {
     const restoreColorRef = useRef(null)
     const heightColor = Color.YELLOW
 
-    window.features = []
+    const features = []
 
   /**
    *
