@@ -64,6 +64,8 @@ const AceClip = props => {
         viewer.scene.primitives.add(buildTilest)
 
         viewerRef.current = viewer
+
+        window.viewer = viewer
     }
 
     useEffect(() => {

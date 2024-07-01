@@ -1,8 +1,8 @@
 ---
-title: 基础例子
-description: 基础例子
+title: 3dtiles
+description: 3dtiles
 nav: cesium
-group: example
+group: cesium示例
 order: 0
 ---
 
