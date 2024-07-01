@@ -6,7 +6,7 @@ import style from './style.module.less'
 import {useInViewport} from 'ahooks'
 
 window.Cesium = Cesium
-Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYzAzYzE4NS0yZmJiLTQ5NzUtOWJlYS0zNjdkMzc2ODBmZDgiLCJpZCI6MjU5LCJpYXQiOjE3MTQ1NzE1MDN9.tIhlyfC7MHSWrQmoAqkvQdXMbg3igaC2HIbQp1HKCVM';
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1YmMwZWJlMS0xOTY4LTRiZTMtYmQzZS0yMGNmNTlhMjI2NjAiLCJpZCI6NTIxNTcsImlhdCI6MTYxODQ2ODcwMX0.BdV7teNT0Eejxoo2gizX_bhtKrdGaEavDlOhvo8flK4';
 const Container = props => {
     const isCreateMap = props?.isCreateMap ?? true
     const mapOptions = props?.mapOptions || {}
