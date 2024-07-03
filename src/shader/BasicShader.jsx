@@ -1,5 +1,5 @@
 import { Space } from 'antd';
-import { Cesium3DTile, Cesium3DTileset, HeadingPitchRange, Viewer, Math, ScreenSpaceEventHandler, ScreenSpaceEventType, Cesium3DTileFeature, defined, Color, Cartesian3, HeadingPitchRoll, PostProcessStage, PostProcessStageLibrary, Primitive, GeometryInstance, RectangleGeometry, Rectangle, EllipsoidSurfaceAppearance, Material } from 'cesium';
+import { Cesium3DTile, Cesium3DTileset, HeadingPitchRange, Viewer, Math, ScreenSpaceEventHandler, ScreenSpaceEventType, Cesium3DTileFeature, defined, Color, Cartesian3, HeadingPitchRoll, PostProcessStage, PostProcessStageLibrary, Primitive, GeometryInstance, RectangleGeometry, Rectangle, EllipsoidSurfaceAppearance, Material, MaterialAppearance } from 'cesium';
 import Container from '../components/Container';
 import { useRef, useState, useEffect } from 'react';
 
@@ -13,7 +13,6 @@ const BasicShader = props => {
      */
     const loadedMap = (viewer) => {
 
-        debugger
 
         const customMaterial = new Material({
             fabric: {
@@ -33,7 +32,7 @@ const BasicShader = props => {
                         float t = st.y; // 使用纹理坐标的y作为渐变因子，从底部到顶部渐变
                         
                         // 线性插值计算颜色
-                        material.diffuse = czm_mix(bottomColor.rgb, topColor.rgb, t);
+                        material.diffuse = mix(bottomColor.rgb, topColor.rgb, t);
                         
                         return material;
                     }
@@ -49,7 +48,7 @@ const BasicShader = props => {
                         vertexFormat: EllipsoidSurfaceAppearance.VERTEX_FORMAT
                     })
                 }),
-                appearance: new EllipsoidSurfaceAppearance({
+                appearance: new MaterialAppearance({
                     aboveGround: true,
                     material : customMaterial
                 })
@@ -57,7 +56,7 @@ const BasicShader = props => {
         )
         //    viewer.zoomTo(rectangle)
         viewer.camera.flyTo({
-            destination: new Cartesian3.fromDegrees(116, 39, 1000)
+            destination: new Cartesian3.fromDegrees(116.5, 39.2, 80000)
         })
     }
 

@@ -6,5 +6,12 @@ group: cesium示例
 order: 4
 ---
 
-## 基础shader
+## 基础 shader
+
 <code src="./BasicShader.jsx"></code>
+
+##  河流数据
+<code src="./RiverPolygon.jsx"></code>
+
+## OceanShader
+<code src="./OceanShader.jsx"></code>
