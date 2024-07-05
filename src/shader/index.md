@@ -18,3 +18,9 @@ order: 4
 
 ##  水体积
 <code src="./WaterVolume.jsx"></code>
+
+##  水管
+<code src="./PipeShader.jsx"></code>
+
+##  茶壶
+<code src="./Teapot.jsx"></code>

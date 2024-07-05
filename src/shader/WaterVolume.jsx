@@ -30,8 +30,8 @@ const WaterVolume = props => {
         //     rectangle : Rectangle.fromDegrees(113.41 , 29.58 , 115.42,  31.22)
         // })
         const geometry = BoxGeometry.fromDimensions({
-            dimensions: new Cartesian3(1, 1, 1),
-            vertexFormat: VertexFormat.POSITION_NORMAL_AND_ST
+            dimensions: new Cartesian3(5, 5, 5),
+            vertexFormat: VertexFormat.POSITION_NORMAL_AND_ST,
         })
 
 
@@ -39,8 +39,8 @@ const WaterVolume = props => {
             geometry,
             id: "polygon",
             modelMatrix: Transforms.eastNorthUpToFixedFrame(Cartesian3.fromDegrees(
-                114, 30
-            ))
+                114, 30 , 20
+            )),
         })
 
 
@@ -495,8 +495,11 @@ mat3 setCamera( in vec3 ro, in vec3 ta, float cr )
                     v_st = st;
                 vec4 position = czm_inverseModel * vec4(p.xyz, 1); 
                                     vDirection=vec3(position.x , position.y , position.z)-vOrigin;
-vDirection = position3DHigh+position3DLow - vOrigin;
+vDirection = vec3(p) - vOrigin;
                     gl_Position = czm_modelViewProjectionRelativeToEye * p;
+
+                  //   gl_Position = czm_modelViewProjection * vec4(position3DHigh+position3DLow, 1.0);
+
                 }
 
             `,
@@ -518,33 +521,6 @@ in vec2 v_st;
                             out_FragColor = vec4(vec3(material.diffuse), material.alpha);
 
                 }
-            `,
-            vertexShaderSource1: `
-                out vec3 vOrigin;
-                out vec3 vDirection;
-                in vec3 position3DHigh;
-in vec3 position3DLow;
-in vec3 normal;
-in vec2 st;
-in float batchId;
-
-out vec3 v_positionEC;
-                void main() {
-                    vOrigin=czm_encodedCameraPositionMCHigh+czm_encodedCameraPositionMCLow;
-
-
-                    vec4 positionWC = czm_computePosition();
- vec4 position = czm_inverseModel * vec4(positionWC.xyz, 1); 
-                    vDirection=vec3(poxition.xyz)-vOrigin;
-
-
-
-    gl_Position = czm_modelViewProjectionRelativeToEye * positionWC;
-
-                }
-            `,
-            fragmentShaderSource1: `
-            
             `,
             flat: true,
             renderState: {}
